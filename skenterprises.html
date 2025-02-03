@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Enterprises</title>
+    <style>
+        :root {
+            --primaryColor: #0D3154;
+            --secondaryColor: #E6E9EE;
+            --whiteColor: #FFFFFD;
+            --yellowColor: #FFAA14;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            overflow: auto;
+            scrollbar-width: none;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        .centerRow {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .centerCol {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body {
+            display: flex;
+            flex-direction: row;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: white;
+
+        }
+
+        body.final {
+            flex-wrap: wrap;
+            justify-content: space-around;
+            row-gap: 60px;
+            height: fit-content;
+        }
+
+        body.final img {
+            width: 47%;
+            height: 6cm;
+            object-fit: contain;
+        }
+
+        body.final.fit img {
+            width: 47%;
+            height: 6cm;
+            object-fit: cover;
+            background-color: #0D3154;
+        }
+
+        .left {
+            width: 20%;
+            height: 100%;
+            background-color: var(--primaryColor);
+            color: white;
+        }
+
+        .menuItems {
+            list-style-type: none;
+            width: 90%;
+            margin: auto;
+        }
+
+        .left .title {
+            width: 100%;
+            padding: 10px 0px;
+            height: 100px;
+            font-size: 20px;
+        }
+
+        .menuItems li {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 15px;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .menuItems li:hover {
+            background-color: var(--whiteColor);
+            color: black;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .menuItems li:hover img {
+            filter: none;
+        }
+
+        .menuItems li.active {
+            background-color: var(--whiteColor);
+            color: black;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .menuItems li.active img {
+            filter: none;
+        }
+
+        .menuItems li img {
+            width: 30px;
+            filter: invert(1);
+        }
+
+        .right {
+            width: 80%;
+            height: 100%;
+            background-color: var(--secondaryColor);
+            color: black;
+            overflow: hidden;
+        }
+
+        .right h2 {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0px;
+            font-size: 26px;
+            letter-spacing: 2px;
+        }
+
+        .right .content {
+            width: 98%;
+            height: 99%;
+            margin: auto;
+            overflow: hidden;
+            transition-duration: 0.2s;
+        }
+
+        .right .content.hide {
+            /* display: none; */
+            height: 0%;
+        }
+
+        .right .content .serviceContent {
+            width: 96%;
+            height: 87%;
+            margin: auto;
+            /* background-color: var(--primaryColor); */
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            overflow: scroll;
+            row-gap: 30px;
+            padding: 20px 0px;
+        }
+
+        .serviceContent .serviceItem {
+            height: 300px;
+            width: 300px;
+            background-color: white;
+            cursor: pointer;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+            transition-duration: 0.2s;
+            overflow: hidden;
+        }
+
+        .serviceContent .serviceItem:hover {
+            transform: translateY(-10px);
+        }
+
+        .serviceContent .serviceItem img {
+            height: 50%;
+            width: 100%;
+            object-fit: contain;
+            background-color: white;
+        }
+
+        .serviceContent .serviceItem .text {
+            height: 50%;
+            color: black;
+            width: 100%;
+            padding: 5px 10px;
+            border-top: 2px dashed gray;
+            background-color: var(--primaryColor);
+            color: white;
+        }
+
+        .serviceContent .serviceItem .text h3 {
+            font-size: 20px;
+        }
+
+        .serviceContent .serviceItem .text p {
+            font-size: 14px;
+            opacity: 0.8;
+            text-align: justify;
+            margin-top: 10px;
+        }
+
+        .printWorking {
+            width: 100%;
+            height: 92%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .printWorking .inputs {
+            width: 28%;
+            height: 100%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            border-right: 2px dashed gray;
+        }
+
+        h3 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .inputFiles {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20%;
+            gap: 20px;
+            border-bottom: 2px dashed gray;
+        }
+
+        .inputFiles input {
+            cursor: pointer;
+            background-color: white;
+            outline: none;
+            padding: 6px;
+            width: 92%;
+            height: 100px;
+            border-radius: 10px;
+            background-color: rgb(215, 215, 215);
+        }
+
+        .inputFiles button {
+            background-color: var(--primaryColor);
+            color: white;
+            outline: none;
+            border: none;
+            width: 200px;
+            padding: 7px 0px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .photos {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: scroll;
+            max-height: 71%;
+            row-gap: 15px;
+            justify-content: space-around;
+            padding-top: 20px;
+            align-items: self-start;
+        }
+
+        .photos img {
+            width: 45%;
+            object-position: center;
+            object-fit: contain;
+            border: 1px solid black;
+            height: 150px;
+            cursor: pointer;
+            transition-duration: 0.2s;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .photos img:hover {
+            transform: translateY(-10px);
+        }
+
+        .photos img.selected {
+            border: 4px solid rgb(66, 255, 66);
+        }
+
+        .printWorking .preview {
+            width: 44%;
+            height: 100%;
+            border-right: 2px dashed gray;
+            padding-bottom: 50px;
+        }
+
+        .preview .printView {
+            width: 90%;
+            height: 90%;
+            background-color: white;
+            margin: auto;
+            margin-top: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            padding: 25px;
+        }
+
+        .preview .printView .printViewContent {
+            width: 100%;
+            max-height: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            row-gap: 20px;
+            justify-content: space-between;
+        }
+
+        .preview .printView .printViewContent img {
+            width: 45%;
+            object-fit: contain;
+            object-position: center;
+            height: 130px;
+            cursor: pointer;
+        }
+
+        .preview .printView .printViewContent img:hover {
+            background-color: black;
+        }
+
+        .preview.fit .printView .printViewContent img {
+            object-fit: cover;
+        }
+
+        .printWorking .layoutsSection {
+            width: 28%;
+            height: 100%;
+        }
+
+        .layoutsContainer {
+            width: 95%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: start;
+            justify-content: space-between;
+            margin: auto;
+            margin-top: 10px;
+            row-gap: 25px;
+            overflow-y: scroll;
+            height: 50%;
+        }
+
+        .layoutsContainer .layoutItems {
+            width: 48%;
+            height: 200px;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: 0px 0px 10px rgba(0, 0, 0, 1);
+        }
+
+        .layoutsContainer .layoutItems.active {
+            border: 2px solid var(--primaryColor);
+        }
+
+        .layoutsContainer .layoutItems .graphics {
+            height: 85%;
+            width: 95%;
+            border: 1px solid black;
+            margin-top: 5px;
+        }
+
+        .layoutsSection .options {
+            border-top: 2px dashed gray;
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 10px;
+        }
+
+        .layoutsSection .options li {
+            padding-left: 10px;
+            font-size: 16px;
+        }
+
+        .layoutsSection .options button {
+            width: 80%;
+            margin: auto;
+            background-color: var(--primaryColor);
+            color: white;
+            outline: none;
+            border: none;
+            padding: 5px 0px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .left.hide,
+        .right.hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="clear">
+    <div class="left" id="left">
+
+        <div class="title centerRow">
+            <h2>SK ENTERPRISES</h2>
+        </div>
+
+        <ul class="menuItems" id="menuItems">
+            <li onclick="gotoFeature(this)" value="1" class="active"><img src="images/home_Black.png" alt="image"
+                    id="firstItem">Home
+            </li>
+            <li onclick="gotoFeature(this)" value="2"><img src="images/print_Black.png" alt="image">Printing</li>
+            <li onclick="gotoFeature(this)" value="3"><img src="images/student_Black.png" alt="image">Student Services
+            </li>
+            <li onclick="gotoFeature(this)" value="4"><img src="images/govt_Black.png" alt="image">Goverment Services
+            </li>
+            <li onclick="gotoFeature(this)" value="5"><img src="images/jobs_Black.png" alt="image">Jobs</li>
+            <li onclick="gotoFeature(this)" value="6"><img src="images/travel_Black.png" alt="image">Travelling</li>
+            <li onclick="gotoFeature(this)" value="7"><img src="images/entertainment_Black.png"
+                    alt="image">Entertainment</li>
+        </ul>
+    </div>
+    <div class="right" id="right">
+
+        <div class="content homeContent">
+            <h2>HOME</h2>
+            <div class="serviceContent">
+                <div class="serviceItem" onclick="openLink('https://gmail.com/')">
+                    <img src="images/gmail.png" alt="image">
+                    <div class="text">
+                        <h3>G-MAIL</h3>
+                        <p>Electronic Mail Service provided by Google. View mails, Create and send mails, Print from
+                            mail etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://gmail.com/')">
+                    <img src="images/whatsapp.jpg" alt="image">
+                    <div class="text">
+                        <h3>WHATSAPP WEB</h3>
+                        <p>WhatsApp Web allows users to access their WhatsApp account and chat from a web browser on a
+                            computer by scanning a QR code with their phone.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://telanganaepass.cgg.gov.in/')">
+                    <img src="images/epass.png" alt="image">
+                    <div class="text">
+                        <h3>TS EPASS</h3>
+                        <p>Renewal and Fresh Schoolarship Applications Apply online, View Application Status, Print
+                            Applications Etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://tgsrtcpass.com/')">
+                    <img src="images/busPass.png" alt="image">
+                    <div class="text">
+                        <h3>TSRTC BUS PASS</h3>
+                        <p>Student General & Route Pass Apply Online, View and print Application, View Application
+                            Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem"
+                    onclick="openLink('https://epds.telangana.gov.in/FoodSecurityAct/?x=QZlbGnGoque8P2tvaIjhLQ')">
+                    <img src="images/fscCard.png" alt="image">
+                    <div class="text">
+                        <h3>FSC CARD</h3>
+                        <p>Food Security Card, FSC Application Search, Ration Card online paper printout, Ration Card
+                            Search etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://uidai.gov.in/en/')">
+                    <img src="images/aadhaarCard.png" alt="image">
+                    <div class="text">
+                        <h3>AADHAAR CARD</h3>
+                        <p>E-Aadhaar Service, Print Aadhaar Card, Know Status of Aadhaar Card, Lock or unlock Aadhaar
+                            Card, Update Aadhaar Card etc.,</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="content printContent">
+            <h2>PRINT LAYOUT</h2>
+            <div class="printWorking">
+                <div class="inputs">
+                    <h3>Upload Images</h3>
+                    <div class="inputFiles">
+                        <input type="file" id="fileInput" accept="image/*" multiple>
+                    </div>
+                    <div class="photos" id="photos">
+
+                    </div>
+                </div>
+
+                <div class="preview" id="preview">
+                    <h3>Preview</h3>
+                    <div class="printView">
+                        <div class="printViewContent">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layoutsSection">
+                    <h3>Print Layouts</h3>
+                    <div class="layoutsContainer">
+                        <div class="layoutItems" id="2_3" onclick="viewPreview(this)">
+                            <div class="graphics">
+
+                            </div>
+                            <p> 2*3 (6) Portrait</p>
+                        </div>
+
+                        <!-- <div class="layoutItems" id="3_2" onclick="viewPreview(this)">
+                            <div class="graphics">
+
+                            </div>
+                            <p> 3*2 (6) Landscape</p>
+                        </div> -->
+
+                    </div>
+                    <div class="options" style="list-style-type: none;">
+                        <li id="priceLable">Total Price :</li>
+                        <li id="pageLable">Total Pages : </li>
+                        <li id="picturesLable">Total Pictures : </li>
+                        <span class="centerRow" style="gap: 5px; font-weight: bold;"><input type="checkbox"
+                                onclick="imageFit(this)" id="fitCheckBox">Fit Images</span>
+                        <button onclick="gotoprint()">Print</button>
+                        <!-- <button>Restore</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content studentContent">
+            <h2>STUDENT SERVICES</h2>
+            <div class="serviceContent">
+                <div class="serviceItem" onclick="openLink('https://telanganaepass.cgg.gov.in/')">
+                    <img src="images/epass.png" alt="image">
+                    <div class="text">
+                        <h3>TS Epass</h3>
+                        <p>Renewal and Fresh Schoolarship Applications Apply online, View Application Status, Print
+                            Applications Etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://tgsrtcpass.com/')">
+                    <img src="images/busPass.png" alt="image">
+                    <div class="text">
+                        <h3>TSRTC BUS PASS</h3>
+                        <p>Student General & Route Pass Apply Online, View and print Application, View Application
+                            Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://dost.cgg.gov.in/welcome.do')">
+                    <img src="images/dost.png" alt="image">
+                    <div class="text">
+                        <h3>TS DOST</h3>
+                        <p>Degree Online Services Telangana, Apply for Degree Admissions online, Pay Fee, Candidate
+                            Login, View Admission Status, Download Allotment Orders etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem"
+                    onclick="openLink('https://www.sbtet.telangana.gov.in/index.html#!/index/DiplomaStudentResult')">
+                    <img src="images/sbtet.png" alt="image">
+                    <div class="text">
+                        <h3>DIPLOMA RESULTS</h3>
+                        <p>State board of technical education and training, Telangana (SBTET). Student portal to view
+                            results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content governmentContent">
+            <h2>GOVERNMENT SERVICES</h2>
+            <div class="serviceContent">
+                <div class="serviceItem"
+                    onclick="openLink('https://epds.telangana.gov.in/FoodSecurityAct/?x=QZlbGnGoque8P2tvaIjhLQ')">
+                    <img src="images/fscCard.png" alt="image">
+                    <div class="text">
+                        <h3>FSC CARD</h3>
+                        <p>Food Security Card, FSC Application Search, Ration Card online paper printout, Ration Card
+                            Search etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem"
+                    onclick="openLink('https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html')">
+                    <img src="images/panCard.png" alt="image">
+                    <div class="text">
+                        <h3>PAN CARD</h3>
+                        <p>Student General & Route Pass Apply Online, View and print Application, View Application
+                            Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://uidai.gov.in/en/')">
+                    <img src="images/aadhaarCard.png" alt="image">
+                    <div class="text">
+                        <h3>AADHAAR CARD</h3>
+                        <p>E-Aadhaar Service, Print Aadhaar Card, Know Status of Aadhaar Card, Lock or unlock Aadhaar
+                            Card, Update Aadhaar Card etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://meeseva.telangana.gov.in/meeseva/home.htm')">
+                    <img src="images/mee_seva.png" alt="image">
+                    <div class="text">
+                        <h3>MEE SEVA</h3>
+                        <p>Know the status of Mee Seva Certificates like Caste certificate, Income Certificates
+                            or any other certificates Online.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://abha.abdm.gov.in/abha/v3/')">
+                    <img src="images/abha.jpg" alt="image">
+                    <div class="text">
+                        <h3>HEALTH CARD (ABHA)</h3>
+                        <p>The ABHA portal allows users to create and manage digital health IDs for accessing healthcare
+                            services.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.incometax.gov.in/iec/foportal/')">
+                    <img src="images/EFILLING.jpg" alt="image">
+                    <div class="text">
+                        <h3>E-FILLING</h3>
+                        <p>The ABHA portal allows users to create and manage digital health IDs for accessing healthcare
+                            services.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="content jobsContent">
+            <h2>JOB PORTALS</h2>
+            <div class="serviceContent">
+
+                <div class="serviceItem" onclick="openLink('https://www.tspsc.gov.in/')">
+                    <img src="images/tspsc.jpg" alt="image">
+                    <div class="text">
+                        <h3>TSPSC</h3>
+                        <p>Telangana State Public Service Commission. Online Application portal for all kind of State
+                            government Public Sector jobs.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.tgprb.in/')">
+                    <img src="images/TSLPRB.jpg" alt="image">
+                    <div class="text">
+                        <h3>TSLPRB</h3>
+                        <p>Telangana State Level police Recruitment Board. Online portal for Police Jobs online
+                            applications, Apply online, Know Application Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.rrbapply.gov.in/#/auth/landing')">
+                    <img src="images/RRB.png" alt="image">
+                    <div class="text">
+                        <h3>RRB JOBS</h3>
+                        <p>Telangana State Public Service Commission. Online Application portal for all kind of State
+                            government Public Sector jobs.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://ssc.gov.in/')">
+                    <img src="images/ssc.png" alt="image">
+                    <div class="text">
+                        <h3>SSC JOBS</h3>
+                        <p>Staff Selection Commission (SSC) of India. The SSC is a
+                            government body responsible for recruiting staff for various positions in ministries,
+                            departments etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.freejobalert.com/')">
+                    <img src="images/freejob.png" alt="image">
+                    <div class="text">
+                        <h3>Free Job Alert</h3>
+                        <p>Search Jobs Online, Information about all the government jobs and online application links
+                            etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.naukri.com/')">
+                    <img src="images/naukri.jpg" alt="image">
+                    <div class="text">
+                        <h3>Naukri</h3>
+                        <p>Search Jobs Online, Information about all the government jobs and online application links
+                            etc.,</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="content travelContent">
+            <h2>TRAVEL TICKET BOOKINGS</h2>
+            <div class="serviceContent">
+
+                <div class="serviceItem" onclick="openLink('https://www.tgsrtcbus.in/oprs-web/')">
+                    <img src="images/tsrtc.png" alt="image">
+                    <div class="text">
+                        <h3>TGRTC</h3>
+                        <p>Online Ticket Booking Portal for Telangana State Road Transport Co-Operation Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.apsrtconline.in/oprs-web/guest/home.do?h=1')">
+                    <img src="images/apsrtc.png" alt="image">
+                    <div class="text">
+                        <h3>APSRTC</h3>
+                        <p>Online Ticket Booking Portal for Andhra Pradesh State Road Transport Co-Operation Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.irctc.co.in/nget/train-search')">
+                    <img src="images/irctc.png" alt="image">
+                    <div class="text">
+                        <h3>IRCTC</h3>
+                        <p>Online Official Portal for Booking Indian Railways Train Tickets online. Book General and
+                            Tatkal tickets, View Tickets, View Train Schedule etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.redbus.in/')">
+                    <img src="images/redbus.jpg" alt="image">
+                    <div class="text">
+                        <h3>RED BUS</h3>
+                        <p>Online Ticket Booking Portal for Government and Private Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.abhibus.com/')">
+                    <img src="images/abhibus.jpg" alt="image">
+                    <div class="text">
+                        <h3>ABHI BUS</h3>
+                        <p>Online Ticket Booking Portal for Government and Private Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.confirmtkt.com/')">
+                    <img src="images/confirmTicket.jpg" alt="image">
+                    <div class="text">
+                        <h3>CONFIRM TICKET</h3>
+                        <p>Online private Portal for Booking Indian Railways Train Tickets online. Book General and
+                            Tatkal tickets, View Tickets, View Train Schedule etc.,</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content entertainmentContent">
+            <h2>ENTERTAINMENT SITES</h2>
+            <div class="serviceContent">
+
+                <div class="serviceItem" onclick="openLink('https://www.youtube.com/')">
+                    <img src="images/youtube.jpg" alt="image">
+                    <div class="text">
+                        <h3>YOUTUBE</h3>
+                        <p>YouTube is a platform for uploading, watching, and sharing videos. It offers content on
+                            entertainment, education, music, and more.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://in.bookmyshow.com/')">
+                    <img src="images/bms.png" alt="image">
+                    <div class="text">
+                        <h3>BOOK MY SHOW</h3>
+                        <p>BookMyShow is an online platform for booking movie tickets, events, concerts, and other
+                            entertainment activities.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.justickets.in/')">
+                    <img src="images/justickets.jpg" alt="image">
+                    <div class="text">
+                        <h3>JUST TICKETS</h3>
+                        <p>Justickets is an online ticket booking platform offering movie tickets, showtimes, and seat
+                            reservations for theaters.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://ticketnew.com/')">
+                    <img src="images/ticketNew.png" alt="image">
+                    <div class="text">
+                        <h3>TICKET NEW</h3>
+                        <p>TicketNew is an online platform for booking movie tickets, offering showtimes, ticket
+                            availability, and seat reservations for cinemas.</p>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        let imageArray = [];
+        let finalImageArray = [];
+        let removableImages = [];
+
+
+        function gotoFeature(ref) {
+            resetIcons();
+            hideAllSections();
+            ref.classList.add('active');
+            getId('right').children[parseInt(ref.value) - 1].classList.remove('hide');
+        }
+
+        function resetIcons() {
+            let menuItems = getId('menuItems');
+            for (let i = 0; i < menuItems.children.length; i++) {
+                menuItems.children[i].classList.remove('active');
+            }
+        }
+
+        function getId(element) {
+            return document.getElementById(element);
+        }
+
+        document.getElementById("fileInput").addEventListener("change", function (event) {
+            resetWindow();
+
+            const files = event.target.files;
+            const photos = document.getElementById("photos");
+
+            // Clear previous images
+            photos.innerHTML = "";
+            imageArray = [];
+            finalImageArray = [];
+            removableImages = [];
+            // Loop through each selected file
+            for (let file of files) {
+                if (file.type.startsWith("image/")) { // Ensure it's an image
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        imageArray.push(e.target.result);
+                        const img = document.createElement("img");
+                        img.setAttribute("onclick", "addImage(this)");
+                        img.src = e.target.result;
+                        photos.appendChild(img);
+                    };
+
+                    reader.readAsDataURL(file); // Convert file to base64 URL
+                }
+            }
+
+        });
+
+        function imageFit(ref) {
+            if (imageArray != 0) {
+                if (ref.checked) {
+                    getId('preview').classList.add('fit');
+                    document.body.classList.add('fit');
+                } else {
+                    getId('preview').classList.remove('fit');
+                    document.body.classList.remove('fit');
+                }
+            } else {
+                alert("Please Upload Images!");
+                getId('fitCheckBox').checked = false;
+            }
+        }
+
+        function fillImagesPreview(inputArray) {
+            let pages = inputArray.length / 6;
+            let remaining = inputArray.length % 6;
+
+            let preview = getId('preview');
+            preview.innerHTML = "";
+
+            let Heading = document.createElement('h3');
+            Heading.innerText = "Preview";
+
+            preview.appendChild(Heading);
+
+            if (inputArray.length <= 6) {
+                let printView = document.createElement('div');
+                let printViewContent = document.createElement('div');
+
+                printView.classList.add('printView');
+                printViewContent.classList.add('printViewContent');
+
+                for (let i = 0; i < inputArray.length; i++) {
+                    let image = document.createElement("img");
+                    image.setAttribute('onclick', 'removeImage(this)');
+                    image.src = inputArray[i];
+                    printViewContent.appendChild(image);
+                }
+
+                printView.appendChild(printViewContent)
+                preview.appendChild(printView);
+
+                let Price = 0;
+                if (inputArray.length > 3) {
+                    Price = 20;
+                } else {
+                    Price = inputArray.length * 5;
+                }
+
+                getId('priceLable').innerText = "Total Price : " + Price + "/-";
+                getId('pageLable').innerText = "Total Pages : " + 1;
+                getId('picturesLable').innerText = "Total Pictures : " + inputArray.length;
+            } else {
+
+                if (remaining == 0) {
+                    pages = pages;
+                } else {
+                    pages += 1;
+                }
+
+                pages = parseInt(pages);
+
+
+
+                for (let i = 0; i < pages; i++) {
+                    let page = document.createElement('div');
+                    let pageContent = document.createElement('div');
+
+                    page.classList.add('printView');
+                    pageContent.classList.add('printViewContent');
+
+                    page.appendChild(pageContent);
+
+                    let start = i * 6;
+                    let end = start + 6;
+
+                    for (let j = start; j < end; j++) {
+                        if (inputArray[j] == undefined) {
+
+                        } else {
+                            let image = document.createElement('img');
+                            image.setAttribute('onclick', 'removeImage(this)');
+                            image.src = inputArray[j];
+                            pageContent.appendChild(image);
+                        }
+                    }
+                    preview.appendChild(page);
+                }
+
+                let Price = 0;
+                if (remaining == 0) {
+                    Price = pages * 20;
+                } else {
+                    Price = (pages - 1) * 20;
+                    if (remaining == 1) {
+                        Price += 5;
+                    } else if (remaining == 2) {
+                        Price += 10;
+                    } else if (remaining == 3) {
+                        Price += 15;
+                    } else if (remaining > 3) {
+                        Price += 20;
+                    } else {
+                        Price = Price;
+                    }
+                }
+
+
+                getId('priceLable').innerText = "Total Price : " + Price + "/-";
+                getId('pageLable').innerText = "Total Pages : " + pages;
+                getId('picturesLable').innerText = "Total Pictures : " + inputArray.length;
+            }
+
+            finalImageArray = inputArray;
+            highliteImages();
+        }
+
+        function viewPreview(ref) {
+            if (imageArray.length != 0) {
+                // getId('3_2').classList.remove('active');
+                // getId('2_3').classList.remove('active');
+                ref.classList.add('active');
+                fillImagesPreview(imageArray);
+            } else {
+                alert("Please Upload Images First");
+            }
+        }
+
+        function gotoprint() {
+            if (finalImageArray.length != 0) {
+                document.body.classList.add('final');
+                getId('left').classList.add('hide');
+                getId('right').classList.add('hide');
+            } else {
+                alert("Please Upload Images First");
+            }
+
+            for (let i = 0; i < finalImageArray.length; i++) {
+                let image = document.createElement('img');
+                image.src = finalImageArray[i];
+                document.body.appendChild(image);
+            }
+
+            window.print();
+        }
+
+        function removeImage(ref) {
+            finalImageArray = imageArray;
+            let indexToRemove = finalImageArray.indexOf(ref.src);
+            removableImages.push(indexToRemove);
+            finalImageArray = finalImageArray.filter((_, index) => !removableImages.includes(index));
+            fillImagesPreview(finalImageArray);
+        }
+
+        function addImage(ref) {
+            let imageToAdd = ref.src;
+            if (finalImageArray.includes(imageToAdd)) {
+                alert("Image already Selected");
+            } else {
+                finalImageArray = imageArray;
+                let indexToRemove = finalImageArray.indexOf(imageToAdd);
+                removableImages = removableImages.filter(num => num !== indexToRemove);
+                finalImageArray = finalImageArray.filter((_, index) => !removableImages.includes(index));
+                fillImagesPreview(finalImageArray);
+            }
+        }
+
+        function highliteImages() {
+            let photos = getId('photos');
+            for (let i = 0; i < photos.children.length; i++) {
+                if (finalImageArray.includes(photos.children[i].src)) {
+                    photos.children[i].classList.add('selected');
+                } else {
+                    photos.children[i].classList.remove('selected');
+                }
+            }
+        }
+
+        function resetWindow() {
+            let preview = getId('preview');
+            preview.innerHTML = "";
+
+            let h3 = document.createElement('h3');
+            let printView = document.createElement('div');
+            let printViewContent = document.createElement('div');
+
+            h3.textContent = "Preview";
+            printView.classList.add('printView');
+            printViewContent.classList.add('printViewContent');
+
+            printView.appendChild(printViewContent);
+            preview.appendChild(h3);
+            preview.appendChild(printView);
+
+            getId('2_3').classList.remove('active');
+
+            getId('priceLable').innerText = "Total Price : ";
+            getId('pageLable').innerText = "Total Pages : ";
+            getId('picturesLable').innerText = "Total Pictures : ";
+            getId('fitCheckBox').checked = false;
+        }
+
+        function hideAllSections() {
+            let right = getId('right');
+            for (let i = 0; i < right.children.length; i++) {
+                right.children[i].classList.add('hide');
+            }
+        }
+
+        function openLink(link) {
+            window.open(link, '_blank');
+        }
+
+        hideAllSections();
+        getId('firstItem').click();
+
+        // window.addEventListener("beforeunload", function (event) {
+        //     event.preventDefault();
+        //     this.alert('Please Close It Before Leaving');
+        // });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Enterprises</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="clear">
+    <div class="left" id="left">
+
+        <div class="title centerRow">
+            <h2>SK ENTERPRISES</h2>
+        </div>
+
+        <ul class="menuItems" id="menuItems">
+            <li onclick="gotoFeature(this)" value="1" class="active"><img src="images/home_Black.png" alt="image"
+                    id="firstItem">Home
+            </li>
+            <li onclick="gotoFeature(this)" value="2"><img src="images/print_Black.png" alt="image">Printing</li>
+            <li onclick="gotoFeature(this)" value="3"><img src="images/student_Black.png" alt="image">Student Services
+            </li>
+            <li onclick="gotoFeature(this)" value="4"><img src="images/govt_Black.png" alt="image">Goverment Services
+            </li>
+            <li onclick="gotoFeature(this)" value="5"><img src="images/jobs_Black.png" alt="image">Jobs</li>
+            <li onclick="gotoFeature(this)" value="6"><img src="images/travel_Black.png" alt="image">Travelling</li>
+            <li onclick="gotoFeature(this)" value="7"><img src="images/entertainment_Black.png"
+                    alt="image">Entertainment</li>
+        </ul>
+    </div>
+    <div class="right" id="right">
+
+        <div class="content homeContent">
+            <h2>DASHBOARD</h2>
+            <div class="serviceContent hide">
+                <div class="serviceItem" onclick="openLink('https://gmail.com/')">
+                    <img src="images/gmail.png" alt="image">
+                    <div class="text">
+                        <h3>G-MAIL</h3>
+                        <p>Electronic Mail Service provided by Google. View mails, Create and send mails, Print from
+                            mail etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://gmail.com/')">
+                    <img src="images/whatsapp.jpg" alt="image">
+                    <div class="text">
+                        <h3>WHATSAPP WEB</h3>
+                        <p>WhatsApp Web allows users to access their WhatsApp account and chat from a web browser on a
+                            computer by scanning a QR code with their phone.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://telanganaepass.cgg.gov.in/')">
+                    <img src="images/epass.png" alt="image">
+                    <div class="text">
+                        <h3>TS EPASS</h3>
+                        <p>Renewal and Fresh Schoolarship Applications Apply online, View Application Status, Print
+                            Applications Etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://tgsrtcpass.com/')">
+                    <img src="images/busPass.png" alt="image">
+                    <div class="text">
+                        <h3>TSRTC BUS PASS</h3>
+                        <p>Student General & Route Pass Apply Online, View and print Application, View Application
+                            Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem"
+                    onclick="openLink('https://epds.telangana.gov.in/FoodSecurityAct/?x=QZlbGnGoque8P2tvaIjhLQ')">
+                    <img src="images/fscCard.png" alt="image">
+                    <div class="text">
+                        <h3>FSC CARD</h3>
+                        <p>Food Security Card, FSC Application Search, Ration Card online paper printout, Ration Card
+                            Search etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://uidai.gov.in/en/')">
+                    <img src="images/aadhaarCard.png" alt="image">
+                    <div class="text">
+                        <h3>AADHAAR CARD</h3>
+                        <p>E-Aadhaar Service, Print Aadhaar Card, Know Status of Aadhaar Card, Lock or unlock Aadhaar
+                            Card, Update Aadhaar Card etc.,</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="homeContentNew">
+                <div class="mainContent">
+                    <div class="top" id="noteContainer">
+                        <!-- <div class="notes">
+                            <p></p>
+                        </div> -->
+                    </div>
+
+                    <div class="bottom">
+                        <div class="sections">
+                            <h3>SHOP STATUS</h3>
+                            <div class="status">
+                                <span id="statusDisplay">Opened!</span>
+                                <button id="toggleButton" class="close">Close</button>
+                            </div>
+
+                        </div>
+
+                        <div class="sections">
+                            <h3>STICKY NOTES</h3>
+                            <div class="stickNotes">
+                                <p>Message</p>
+                                <textarea id="message"></textarea>
+                                <div class="actionBtns">
+                                    <button class="red" onclick="deletAllNotes()">Delete All</button>
+                                    <button onclick="saveNotes()">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sideBar">
+                    <div class="top">
+                        <h3>Quick Links</h3>
+                        <div class="linksContainer">
+
+                            <li onclick="openLink('https://gmail.com/')">
+                                <img src="images/gmail.png" alt="Icon">
+                                <span>Gmail</span>
+                            </li>
+
+                            <li onclick="openLink('https://web.whatsapp.com/')">
+                                <img src="images/whatsapp.jpg" alt="Icon">
+                                <span>WhatsApp Web</span>
+                            </li>
+
+                            <li onclick="openLink('https://picresize.com/')">
+                                <img src="images/picresize.png" alt="Icon">
+                                <span>Online Pic Resize</span>
+                            </li>
+
+                            <li onclick="openLink('https://uidai.gov.in/en/')">
+                                <img src="images/aadhar.png" alt="Icon">
+                                <span>E - Aadhaar</span>
+                            </li>
+
+                            <li onclick="openLink('https://telanganaepass.cgg.gov.in/')">
+                                <img src="images/epass.png" alt="Icon">
+                                <span>TS Epass</span>
+                            </li>
+
+                            <li onclick="openLink('https://tgsrtcpass.com/')">
+                                <img src="images/tsrtc.png" alt="Icon">
+                                <span>TGSRTC Bus Pass</span>
+                            </li>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content printContent">
+            <h2>PRINT LAYOUT</h2>
+            <div class="printWorking">
+                <div class="inputs">
+                    <h3>Upload Images</h3>
+                    <div class="inputFiles">
+                        <input type="file" id="fileInput" accept="image/*" multiple>
+                    </div>
+                    <div class="photos" id="photos">
+
+                    </div>
+                </div>
+
+                <div class="preview" id="preview">
+                    <h3>Preview</h3>
+                    <div class="printView">
+                        <div class="printViewContent">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layoutsSection">
+                    <h3>Print Layouts</h3>
+                    <div class="layoutsContainer">
+
+                        <div class="layoutItems" id="2_3" onclick="viewPreview(this)">
+                            <div class="graphics">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </div>
+                            <p> 2*3 (6) Portrait</p>
+                        </div>
+
+                        <!-- <div class="layoutItems" id="3_2" onclick="viewPreview(this)">
+                            <div class="graphics">
+
+                            </div>
+                            <p> 3*2 (6) Landscape</p>
+                        </div> -->
+
+                    </div>
+                    <div class="options" style="list-style-type: none;">
+                        <li id="priceLable">Total Price :</li>
+                        <li id="pageLable">Total Pages : </li>
+                        <li id="picturesLable">Total Pictures : </li>
+                        <span class="centerRow" style="gap: 5px; font-weight: bold;"><input type="checkbox"
+                                onclick="imageFit(this)" id="fitCheckBox">Fit Images</span>
+                        <button onclick="gotoprint()">Print</button>
+                        <!-- <button>Restore</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content studentContent">
+            <h2>STUDENT SERVICES</h2>
+            <div class="serviceContent">
+                <div class="serviceItem" onclick="openLink('https://telanganaepass.cgg.gov.in/')">
+                    <img src="images/epass.png" alt="image">
+                    <div class="text">
+                        <h3>TS Epass</h3>
+                        <p>Renewal and Fresh Schoolarship Applications Apply online, View Application Status, Print
+                            Applications Etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://tgsrtcpass.com/')">
+                    <img src="images/busPass.png" alt="image">
+                    <div class="text">
+                        <h3>TSRTC BUS PASS</h3>
+                        <p>Student General & Route Pass Apply Online, View and print Application, View Application
+                            Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://dost.cgg.gov.in/welcome.do')">
+                    <img src="images/dost.png" alt="image">
+                    <div class="text">
+                        <h3>TS DOST</h3>
+                        <p>Degree Online Services Telangana, Apply for Degree Admissions online, Pay Fee, Candidate
+                            Login, View Admission Status, Download Allotment Orders etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem"
+                    onclick="openLink('https://www.sbtet.telangana.gov.in/index.html#!/index/DiplomaStudentResult')">
+                    <img src="images/sbtet.png" alt="image">
+                    <div class="text">
+                        <h3>DIPLOMA RESULTS</h3>
+                        <p>State board of technical education and training, Telangana (SBTET). Student portal to view
+                            results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content governmentContent">
+            <h2>GOVERNMENT SERVICES</h2>
+            <div class="serviceContent">
+                <div class="serviceItem"
+                    onclick="openLink('https://epds.telangana.gov.in/FoodSecurityAct/?x=QZlbGnGoque8P2tvaIjhLQ')">
+                    <img src="images/fscCard.png" alt="image">
+                    <div class="text">
+                        <h3>FSC CARD</h3>
+                        <p>Food Security Card, FSC Application Search, Ration Card online paper printout, Ration Card
+                            Search etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem"
+                    onclick="openLink('https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html')">
+                    <img src="images/panCard.png" alt="image">
+                    <div class="text">
+                        <h3>PAN CARD</h3>
+                        <p>Student General & Route Pass Apply Online, View and print Application, View Application
+                            Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://uidai.gov.in/en/')">
+                    <img src="images/aadhaarCard.png" alt="image">
+                    <div class="text">
+                        <h3>AADHAAR CARD</h3>
+                        <p>E-Aadhaar Service, Print Aadhaar Card, Know Status of Aadhaar Card, Lock or unlock Aadhaar
+                            Card, Update Aadhaar Card etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://meeseva.telangana.gov.in/meeseva/home.htm')">
+                    <img src="images/mee_seva.png" alt="image">
+                    <div class="text">
+                        <h3>MEE SEVA</h3>
+                        <p>Know the status of Mee Seva Certificates like Caste certificate, Income Certificates
+                            or any other certificates Online.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://abha.abdm.gov.in/abha/v3/')">
+                    <img src="images/abha.jpg" alt="image">
+                    <div class="text">
+                        <h3>HEALTH CARD (ABHA)</h3>
+                        <p>The ABHA portal allows users to create and manage digital health IDs for accessing healthcare
+                            services.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.incometax.gov.in/iec/foportal/')">
+                    <img src="images/EFILLING.jpg" alt="image">
+                    <div class="text">
+                        <h3>E-FILLING</h3>
+                        <p>The ABHA portal allows users to create and manage digital health IDs for accessing healthcare
+                            services.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="content jobsContent">
+            <h2>JOB PORTALS</h2>
+            <div class="serviceContent">
+
+                <div class="serviceItem" onclick="openLink('https://www.tspsc.gov.in/')">
+                    <img src="images/tspsc.jpg" alt="image">
+                    <div class="text">
+                        <h3>TSPSC</h3>
+                        <p>Telangana State Public Service Commission. Online Application portal for all kind of State
+                            government Public Sector jobs.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.tgprb.in/')">
+                    <img src="images/TSLPRB.jpg" alt="image">
+                    <div class="text">
+                        <h3>TSLPRB</h3>
+                        <p>Telangana State Level police Recruitment Board. Online portal for Police Jobs online
+                            applications, Apply online, Know Application Status etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.rrbapply.gov.in/#/auth/landing')">
+                    <img src="images/RRB.png" alt="image">
+                    <div class="text">
+                        <h3>RRB JOBS</h3>
+                        <p>Telangana State Public Service Commission. Online Application portal for all kind of State
+                            government Public Sector jobs.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://ssc.gov.in/')">
+                    <img src="images/ssc.png" alt="image">
+                    <div class="text">
+                        <h3>SSC JOBS</h3>
+                        <p>Staff Selection Commission (SSC) of India. The SSC is a
+                            government body responsible for recruiting staff for various positions in ministries,
+                            departments etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.freejobalert.com/')">
+                    <img src="images/freejob.png" alt="image">
+                    <div class="text">
+                        <h3>Free Job Alert</h3>
+                        <p>Search Jobs Online, Information about all the government jobs and online application links
+                            etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.naukri.com/')">
+                    <img src="images/naukri.jpg" alt="image">
+                    <div class="text">
+                        <h3>Naukri</h3>
+                        <p>Search Jobs Online, Information about all the government jobs and online application links
+                            etc.,</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="content travelContent">
+            <h2>TRAVEL TICKET BOOKINGS</h2>
+            <div class="serviceContent">
+
+                <div class="serviceItem" onclick="openLink('https://www.tgsrtcbus.in/oprs-web/')">
+                    <img src="images/tsrtc.png" alt="image">
+                    <div class="text">
+                        <h3>TGRTC</h3>
+                        <p>Online Ticket Booking Portal for Telangana State Road Transport Co-Operation Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.apsrtconline.in/oprs-web/guest/home.do?h=1')">
+                    <img src="images/apsrtc.png" alt="image">
+                    <div class="text">
+                        <h3>APSRTC</h3>
+                        <p>Online Ticket Booking Portal for Andhra Pradesh State Road Transport Co-Operation Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.irctc.co.in/nget/train-search')">
+                    <img src="images/irctc.png" alt="image">
+                    <div class="text">
+                        <h3>IRCTC</h3>
+                        <p>Online Official Portal for Booking Indian Railways Train Tickets online. Book General and
+                            Tatkal tickets, View Tickets, View Train Schedule etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.redbus.in/')">
+                    <img src="images/redbus.jpg" alt="image">
+                    <div class="text">
+                        <h3>RED BUS</h3>
+                        <p>Online Ticket Booking Portal for Government and Private Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.abhibus.com/')">
+                    <img src="images/abhibus.jpg" alt="image">
+                    <div class="text">
+                        <h3>ABHI BUS</h3>
+                        <p>Online Ticket Booking Portal for Government and Private Buses. Book
+                            Ticket Online, View Available Bus Details etc.,</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.confirmtkt.com/')">
+                    <img src="images/confirmTicket.jpg" alt="image">
+                    <div class="text">
+                        <h3>CONFIRM TICKET</h3>
+                        <p>Online private Portal for Booking Indian Railways Train Tickets online. Book General and
+                            Tatkal tickets, View Tickets, View Train Schedule etc.,</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content entertainmentContent">
+            <h2>ENTERTAINMENT SITES</h2>
+            <div class="serviceContent">
+
+                <div class="serviceItem" onclick="openLink('https://www.youtube.com/')">
+                    <img src="images/youtube.jpg" alt="image">
+                    <div class="text">
+                        <h3>YOUTUBE</h3>
+                        <p>YouTube is a platform for uploading, watching, and sharing videos. It offers content on
+                            entertainment, education, music, and more.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://in.bookmyshow.com/')">
+                    <img src="images/bms.png" alt="image">
+                    <div class="text">
+                        <h3>BOOK MY SHOW</h3>
+                        <p>BookMyShow is an online platform for booking movie tickets, events, concerts, and other
+                            entertainment activities.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://www.justickets.in/')">
+                    <img src="images/justickets.jpg" alt="image">
+                    <div class="text">
+                        <h3>JUST TICKETS</h3>
+                        <p>Justickets is an online ticket booking platform offering movie tickets, showtimes, and seat
+                            reservations for theaters.</p>
+                    </div>
+                </div>
+
+                <div class="serviceItem" onclick="openLink('https://ticketnew.com/')">
+                    <img src="images/ticketNew.png" alt="image">
+                    <div class="text">
+                        <h3>TICKET NEW</h3>
+                        <p>TicketNew is an online platform for booking movie tickets, offering showtimes, ticket
+                            availability, and seat reservations for cinemas.</p>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="loadingScreen hide" id="loadingScreen">
+        <div class="loadingBlock">
+            <img src="images/loading.png" alt="loadingImage">
+            <span>Updating Status...</span>
+        </div>
+    </div>
+
+    <script type="module">
+        // Initialize Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+        import { getFirestore, doc, setDoc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAk2Zo7tarwZmNEvNVB20NnTirQ5OlkuNA",
+            authDomain: "skenterprises-86060.firebaseapp.com",
+            projectId: "skenterprises-86060",
+            storageBucket: "skenterprises-86060.firebasestorage.app",
+            messagingSenderId: "1017450868865",
+            appId: "1:1017450868865:web:844034f9c0865660ac9d80",
+            measurementId: "G-SZWCJK54BN"
+        };
+
+        // Initialize Firebase app and analytics
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        const button = document.getElementById("toggleButton");
+        const statusDisplay = document.getElementById("statusDisplay");
+        const loadingScreen = document.getElementById("loadingScreen");
+
+        const statusRef = doc(db, "status", "statusDoc");
+
+        async function setInitialStatus() {
+            try {
+                await setDoc(statusRef, { status: "Opened!" });
+            } catch (error) {
+                console.error("Error setting initial status:", error);
+            }
+        }
+
+        // Button click event listener
+        button.addEventListener("click", async function () {
+            loadingScreen.classList.remove('hide');
+            setTimeout(() => {
+                loadingScreen.classList.add('hide');
+            }, 4000);
+            try {
+                // Get current status from Firestore
+                const docSnap = await getDoc(statusRef);
+                if (docSnap.exists()) {
+                    const currentStatus = docSnap.data().status;
+
+                    let newStatus;
+
+                    if (currentStatus === "Closed!") {
+                        newStatus = "Opened!";
+
+                        await updateDoc(statusRef, {
+                            status: newStatus
+                        });
+
+                        statusDisplay.innerHTML = "Opened!";
+                        statusDisplay.classList.remove('red');
+                        button.innerText = "Close";
+                        button.classList.add('close');
+
+                    } else {
+                        newStatus = "Closed!";
+
+                        await updateDoc(statusRef, {
+                            status: newStatus
+                        });
+
+                        statusDisplay.innerHTML = "Closed!";
+                        statusDisplay.classList.add('red');
+                        button.innerText = "Open";
+                        button.classList.remove('close');
+                    }
+
+                    // console.log("Status updated to:", newStatus);
+                } else {
+                    // console.log("No such document! Setting initial status.");
+                    // If no document exists, set the initial status
+                    await setInitialStatus();
+                }
+            } catch (error) {
+                console.error("Error getting or updating status:", error);
+            }
+        });
+
+        // Set the initial status on page load
+        setInitialStatus();
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
