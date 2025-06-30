@@ -177,11 +177,11 @@ body.final.fit img {
     background-color: white;
     /* margin: auto; */
     border-radius: 10px;
-    background-image: url(images/massJathara.jpg);
+    background-image: url(images/sahastra.jpeg);
     background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0px -60px;
+    background-repeat: repeat;
+    background-size: contain;
+    background-position:top;
     padding: 20px;
     display: flex;
     flex-direction: row;
